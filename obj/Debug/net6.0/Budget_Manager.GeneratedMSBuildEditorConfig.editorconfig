@@ -16,8 +16,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\vghit\Desktop\Programing\WEB\WEB Project UNI\Budget_Manager
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/vghit/Desktop/Programing/WEB/WEB Project UNI/Budget_Manager/Views/Categories/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
+[C:/Users/vghit/Desktop/Programing/WEB/WEB Project UNI/Budget_Manager/Views/Categories/AddOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xBZGRPckVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/vghit/Desktop/Programing/WEB/WEB Project UNI/Budget_Manager/Views/Categories/Delete.cshtml]
@@ -26,10 +26,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/vghit/Desktop/Programing/WEB/WEB Project UNI/Budget_Manager/Views/Categories/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/vghit/Desktop/Programing/WEB/WEB Project UNI/Budget_Manager/Views/Categories/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/vghit/Desktop/Programing/WEB/WEB Project UNI/Budget_Manager/Views/Categories/Index.cshtml]

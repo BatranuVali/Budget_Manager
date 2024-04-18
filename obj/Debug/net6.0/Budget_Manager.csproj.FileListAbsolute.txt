@@ -247,3 +247,6 @@ C:\Users\vghit\Desktop\Programing\WEB\WEB Project UNI\Budget_Manager\bin\Debug\n
 C:\Users\vghit\Desktop\Programing\WEB\WEB Project UNI\Budget_Manager\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\vghit\Desktop\Programing\WEB\WEB Project UNI\Budget_Manager\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\vghit\Desktop\Programing\WEB\WEB Project UNI\Budget_Manager\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\vghit\Desktop\Programing\WEB\WEB Project UNI\Budget_Manager\bin\Debug\net6.0\Syncfusion.EJ2.dll
+C:\Users\vghit\Desktop\Programing\WEB\WEB Project UNI\Budget_Manager\bin\Debug\net6.0\Syncfusion.Licensing.dll
+C:\Users\vghit\Desktop\Programing\WEB\WEB Project UNI\Budget_Manager\obj\Debug\net6.0\Budget_Manager.MvcApplicationPartsAssemblyInfo.cs
