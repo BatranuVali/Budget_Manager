@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aR0fuyYr9KKxDD2ELXJidVsLBD0yN/jcDlRq+1MyZB4=",
+  "Hash": "UcKhnJ+UTpfzpnb3ZnYtsZQXCjz3b3+rFGVwxKlhfd0=",
   "Source": "Budget_Manager",
   "BasePath": "_content/Budget_Manager",
   "Mode": "Default",
@@ -83,6 +83,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\vghit\\Desktop\\Programing\\WEB\\WEB Project UNI\\Budget_Manager\\wwwroot\\favicon-16x16.png",
+      "SourceId": "Budget_Manager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vghit\\Desktop\\Programing\\WEB\\WEB Project UNI\\Budget_Manager\\wwwroot\\",
+      "BasePath": "_content/Budget_Manager",
+      "RelativePath": "favicon-16x16.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon-16x16.png"
+    },
+    {
+      "Identity": "C:\\Users\\vghit\\Desktop\\Programing\\WEB\\WEB Project UNI\\Budget_Manager\\wwwroot\\favicon-32x32.png",
+      "SourceId": "Budget_Manager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vghit\\Desktop\\Programing\\WEB\\WEB Project UNI\\Budget_Manager\\wwwroot\\",
+      "BasePath": "_content/Budget_Manager",
+      "RelativePath": "favicon-32x32.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon-32x32.png"
     },
     {
       "Identity": "C:\\Users\\vghit\\Desktop\\Programing\\WEB\\WEB Project UNI\\Budget_Manager\\wwwroot\\js\\site.js",
@@ -1069,6 +1103,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\vghit\\Desktop\\Programing\\WEB\\WEB Project UNI\\Budget_Manager\\wwwroot\\logo.png",
+      "SourceId": "Budget_Manager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vghit\\Desktop\\Programing\\WEB\\WEB Project UNI\\Budget_Manager\\wwwroot\\",
+      "BasePath": "_content/Budget_Manager",
+      "RelativePath": "logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\vghit\\Desktop\\Programing\\WEB\\WEB Project UNI\\Budget_Manager\\wwwroot\\profile.jpg",
+      "SourceId": "Budget_Manager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vghit\\Desktop\\Programing\\WEB\\WEB Project UNI\\Budget_Manager\\wwwroot\\",
+      "BasePath": "_content/Budget_Manager",
+      "RelativePath": "profile.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\profile.jpg"
     }
   ]
 }
