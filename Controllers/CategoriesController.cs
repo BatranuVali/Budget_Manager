@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Expense_Tracker.Models;
+using Budget_Manager.Models;
 
-namespace Expense_Tracker.Controllers
+namespace Budget_Manager.Controllers
 {
     public class CategoriesController : Controller
     {

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Expense_Tracker.Models.Transaction>
+﻿@model IEnumerable<Budget_Manager.Models.Transaction>
 
 @{
     ViewData["PageTitle"] = "Transactions";
@@ -9,7 +9,7 @@
     <div class="col-md-7">
         <ejs-grid id="transactions" dataSource="@Model" gridLines="None"
                   allowSorting="true" allowPaging="true">
-            <e-grid-pagesettings pageSize="10"></e-grid-pagesettings>
+            <e-grid-pagesettings pageSize="7"></e-grid-pagesettings>
             <e-grid-columns>
                 <e-grid-column headerText="Category" field="CategoryTitleWithIcon"></e-grid-column>
                 <e-grid-column headerText="Date" field="Date" width="110px"

@@ -1,7 +1,7 @@
 ﻿using Budget_Manager.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Expense_Tracker.Models
+namespace Budget_Manager.Models
 {
     public class ApplicationDbContext : DbContext
     {

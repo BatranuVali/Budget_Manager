@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Expense_Tracker.Models
+namespace Budget_Manager.Models
 {
     public class Category
     {
@@ -10,7 +10,7 @@ namespace Expense_Tracker.Models
 
         [Column(TypeName = "nvarchar(50)")]
         [Required(ErrorMessage = "Title is required.")]
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         [Column(TypeName = "nvarchar(5)")]
         public string Icon { get; set; } = "";
