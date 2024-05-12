@@ -21,14 +21,14 @@ html {
         min-width:226px;
         font-size:16px;
         flex-wrap: wrap;
-        justify-content: space-around; /* Adjust as needed */
+        justify-content: space-around; 
     }
     h1{
         font-size:16px;
     }
         .summary > div {
-            flex: 0 0 45%; /* Adjust as needed */
-            margin-bottom: 20px; /* Adjust as needed */
+            flex: 0 0 45%; 
+            margin-bottom: 20px; 
         }
 }
 
@@ -164,16 +164,16 @@ body {
 
 /*Menu*/
 #main-menu {
-    background-color: #12161d; /* Change to your preferred color */
-    color: #fff; /* Change to your preferred color */
+    background-color: #12161d; 
+    color: #fff; 
 }
 
     #main-menu .e-menu-item {
-        padding: 10px 20px; /* Adjust as needed */
+        padding: 10px 20px; 
     }
 
         #main-menu .e-menu-item:hover {
-            background-color: #31373d; /* Change to your preferred color */
+            background-color: #31373d; 
         }
 
 
@@ -238,28 +238,28 @@ body {
     margin-top: 10px;
     text-align: center;
     padding: 10px 0;
-    width: 100%; /* Make the buttons the same width as the spline chart */
+    width: 100%; /
     display: flex;
-    justify-content: space-between; /* Distribute buttons evenly across the width */
-    border-radius: 30px; /* Rounded corners */
+    justify-content: space-between; 
+    border-radius: 30px; 
 }
 
     .btn-group .btn {
         color: #fff;
         border: none;
-        flex-grow: 1; /* Make the buttons fill the space in the bar */
+        flex-grow: 1; 
         text-align: center;
-        padding: 10px 0; /* Adjust as needed to match the height of the bar */
+        padding: 10px 0; 
         background-color: #1a222b;
     }
 
         .btn-group .btn:hover,
         .btn-group .btn:focus {
-            background-color: #31373d; /* Darken when hovered or focused */
+            background-color: #31373d; 
             color: #fff;
         }
 
 .navbar {
-    background-color: #12161d; /* Change to match your page background color */
+    background-color: #12161d; 
 }
 

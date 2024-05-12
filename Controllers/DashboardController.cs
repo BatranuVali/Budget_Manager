@@ -119,12 +119,10 @@ namespace Budget_Manager.Controllers
 
             if (days == "all")
             {
-                // If 'all' is selected, set the start date to the date of the earliest transaction.
                 startDate = await _context.Transactions.MinAsync(t => t.Date);
             }
             else
             {
-                // Otherwise, calculate the start date based on the number of days selected.
                 startDate = DateTime.Today.AddDays(-int.Parse(days) + 1);
             }
 
