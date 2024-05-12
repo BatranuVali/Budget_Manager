@@ -83,9 +83,11 @@
                 </e-chart-chartarea>
                 <e-series-collection>
                     <e-series dataSource="@ViewBag.SplineChartData" xName="day" width="3"
-                              yName="income" name="Income" type="@Syncfusion.EJ2.Charts.ChartSeriesType.Spline"></e-series>
+                              yName="income" name="Income" type="@Syncfusion.EJ2.Charts.ChartSeriesType.Spline"
+                              splineType="Cardinal" tension=0.5></e-series>
                     <e-series dataSource="@ViewBag.SplineChartData" xName="day" width="3"
-                              yName="expense" name="Expense" type="@Syncfusion.EJ2.Charts.ChartSeriesType.Spline"></e-series>
+                              yName="expense" name="Expense" type="@Syncfusion.EJ2.Charts.ChartSeriesType.Spline"
+                              splineType="Cardinal" tension=0.5></e-series>
                 </e-series-collection>
                 <e-chart-legendsettings position="Top" alignment="Far" toggleVisibility="false">
                     <e-legendsettings-textstyle color="#fff" size="1rem"></e-legendsettings-textstyle>
@@ -126,7 +128,7 @@
         </div>
     </div>
     <div class="col-md-6">
-        <div class="widget h-100">
+        <div class="extra widget h-100">
             <div class="d-flex justify-content-center align-items-center h-100">
                 <span><i class="fa-solid fa-plus fa-2xl"></i> Widget</span>
             </div>
@@ -142,9 +144,11 @@
             success: function (response) {
                 // Update the chart data.
                 var chart = document.getElementById('spline-chart').ej2_instances[0];
-                chart.series[0].dataSource = response;
+                chart.series[0].dataSource = response; // Income series
+                chart.series[1].dataSource = response; // Expense series
                 chart.refresh();
             }
         });
     }
+
 </script>

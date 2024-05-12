@@ -16,7 +16,7 @@ namespace Budget_Manager.Controllers
 
         public DashboardController(ApplicationDbContext context)
         {
-            _context = context;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         public async Task<ActionResult> Index(int days = 7) // Default is 7 days
@@ -28,13 +28,13 @@ namespace Budget_Manager.Controllers
 
             //Total Income
             int TotalIncome = SelectedTransactions
-                .Where(i => i.Category.Type == "Income")
+                .Where(i => i.Category?.Type == "Income")
                 .Sum(j => j.Amount);
             ViewBag.TotalIncome = TotalIncome.ToString("C0", cultureInfo);
 
             //Total Expense
             int TotalExpense = SelectedTransactions
-                .Where(i => i.Category.Type == "Expense")
+                .Where(i => i.Category?.Type == "Expense")
                 .Sum(j => j.Amount);
             ViewBag.TotalExpense = TotalExpense.ToString("C0", cultureInfo);
 
@@ -44,11 +44,11 @@ namespace Budget_Manager.Controllers
 
             //Doughnut Chart - Expense By Category
             ViewBag.DoughnutChartData = SelectedTransactions
-                .Where(i => i.Category.Type == "Expense")
-                .GroupBy(j => j.Category.CategoryId)
+                .Where(i => i.Category?.Type == "Expense")
+                .GroupBy(j => j.Category?.CategoryId)
                 .Select(k => new
                 {
-                    categoryTitleWithIcon = k.First().Category.Icon + " " + k.First().Category.Title,
+                    categoryTitleWithIcon = k.First().Category?.Icon + " " + k.First().Category?.Title,
                     amount = k.Sum(j => j.Amount),
                     formattedAmount = k.Sum(j => j.Amount).ToString("C0", cultureInfo),
                 })
@@ -63,7 +63,7 @@ namespace Budget_Manager.Controllers
 
             //Income
             List<SplineChartData> IncomeSummary = SelectedTransactions
-                .Where(i => i.Category.Type == "Income" && i.Date >= StartDate && i.Date <= EndDate)
+                .Where(i => i.Category?.Type == "Income" && i.Date >= StartDate && i.Date <= EndDate)
                 .GroupBy(j => j.Date)
                 .Select(k => new SplineChartData()
                 {
@@ -74,7 +74,7 @@ namespace Budget_Manager.Controllers
 
             //Expense
             List<SplineChartData> ExpenseSummary = SelectedTransactions
-                .Where(i => i.Category.Type == "Expense" && i.Date >= StartDate && i.Date <= EndDate)
+                .Where(i => i.Category?.Type == "Expense" && i.Date >= StartDate && i.Date <= EndDate)
                 .GroupBy(j => j.Date)
                 .Select(k => new SplineChartData()
                 {
@@ -96,8 +96,8 @@ namespace Budget_Manager.Controllers
                                       select new
                                       {
                                           day = day,
-                                          income = income == null ? 0 : income.income,
-                                          expense = expense == null ? 0 : expense.expense,
+                                          income = income?.income ?? 0,
+                                          expense = expense?.expense ?? 0,
                                       };
 
             //Recent Transactions
@@ -110,11 +110,23 @@ namespace Budget_Manager.Controllers
             return View();
         }
 
+
         [HttpGet]
-        public async Task<IActionResult> GetChartData(int days)
+        public async Task<IActionResult> GetChartData(string days)
         {
-            DateTime startDate = DateTime.Today.AddDays(-days + 1);
+            DateTime startDate;
             DateTime endDate = DateTime.Today;
+
+            if (days == "all")
+            {
+                // If 'all' is selected, set the start date to the date of the earliest transaction.
+                startDate = await _context.Transactions.MinAsync(t => t.Date);
+            }
+            else
+            {
+                // Otherwise, calculate the start date based on the number of days selected.
+                startDate = DateTime.Today.AddDays(-int.Parse(days) + 1);
+            }
 
             // Fetch all transactions
             List<Transaction> selectedTransactions = await _context.Transactions
@@ -123,46 +135,30 @@ namespace Budget_Manager.Controllers
                 .ToListAsync();
 
             //Income
-            List<SplineChartData> incomeSummary = selectedTransactions
-                .Where(i => i.Category.Type == "Income")
+            var incomeSummary = selectedTransactions
+                .Where(i => i.Category?.Type == "Income")
                 .GroupBy(j => j.Date)
-                .Select(k => new SplineChartData()
-                {
-                    day = k.First().Date.ToString("dd-MMM"),
-                    income = k.Sum(l => l.Amount)
-                })
-                .ToList();
+                .ToDictionary(k => k.Key, k => k.Sum(l => l.Amount));
 
             //Expense
-            List<SplineChartData> expenseSummary = selectedTransactions
-                .Where(i => i.Category.Type == "Expense")
+            var expenseSummary = selectedTransactions
+                .Where(i => i.Category?.Type == "Expense")
                 .GroupBy(j => j.Date)
-                .Select(k => new SplineChartData()
-                {
-                    day = k.First().Date.ToString("dd-MMM"),
-                    expense = k.Sum(l => l.Amount)
-                })
-                .ToList();
+                .ToDictionary(k => k.Key, k => k.Sum(l => l.Amount));
 
             //Combine Income & Expense
-            string[] lastDays = Enumerable.Range(0, days)
-                .Select(i => startDate.AddDays(i).ToString("dd-MMM"))
-                .ToArray();
-
-            var splineChartData = from day in lastDays
-                                  join income in incomeSummary on day equals income.day into dayIncomeJoined
-                                  from income in dayIncomeJoined.DefaultIfEmpty()
-                                  join expense in expenseSummary on day equals expense.day into expenseJoined
-                                  from expense in expenseJoined.DefaultIfEmpty()
-                                  select new
-                                  {
-                                      day = day,
-                                      income = income == null ? 0 : income.income,
-                                      expense = expense == null ? 0 : expense.expense,
-                                  };
+            var splineChartData = Enumerable.Range(0, (endDate - startDate).Days + 1)
+                .Select(i => startDate.AddDays(i))
+                .Select(date => new
+                {
+                    day = date.ToString("dd-MMM"),
+                    income = incomeSummary.ContainsKey(date) ? incomeSummary[date] : 0,
+                    expense = expenseSummary.ContainsKey(date) ? expenseSummary[date] : 0,
+                });
 
             return Json(splineChartData);
         }
+
     }
 
     public class SplineChartData
