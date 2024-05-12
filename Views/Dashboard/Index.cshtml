@@ -1,13 +1,8 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
     ViewData["isDashboard"] = true;
 }
 
-@*Summary Widgets*@
 <div class="row mb-4">
-
     <div class="col-md-4">
         <div class="d-flex flex-row widget summary income">
             <div class="d-flex flex-column justify-content-center p-5">
@@ -45,14 +40,13 @@
     </div>
 </div>
 
-@*Doughnut and Spline Chart*@
 <div class="row mb-4">
     <div class="col-md-4">
         <div class="widget chart">
             <div class="p-4">
                 <h5 class="fw-bold">Expense By Category</h5>
             </div>
-            <ejs-accumulationchart id="doughnutchart" enableSmartLabels background="#1a222b">
+            <ejs-accumulationchart id="doughnutchart" enableSmartLabels background="#1a222b" height="100%">
                 <e-accumulation-series-collection>
                     <e-accumulation-series dataSource="@ViewBag.DoughnutChartData"
                                            xName="categoryTitleWithIcon" yName="amount"
@@ -97,12 +91,22 @@
                     <e-legendsettings-textstyle color="#fff" size="1rem"></e-legendsettings-textstyle>
                 </e-chart-legendsettings>
                 <e-chart-tooltipsettings enable shared></e-chart-tooltipsettings>
+                <e-chart-zoomsettings enableSelectionZooming="true" mode="X"></e-chart-zoomsettings>
+                <e-chart-crosshairsettings enable="true" lineType="Vertical"></e-chart-crosshairsettings>
             </ejs-chart>
+        </div>
+        <!-- Time Range Selection -->
+        <div class="btn-group" role="group" aria-label="Time range">
+            <button type="button" class="btn btn-secondary rounded-left" onclick="updateChart(7)">7D</button>
+            <button type="button" class="btn btn-secondary" onclick="updateChart(30)">1M</button>
+            <button type="button" class="btn btn-secondary" onclick="updateChart(180)">6M</button>
+            <button type="button" class="btn btn-secondary" onclick="updateChart(365)">1Y</button>
+            <button type="button" class="btn btn-secondary" onclick="updateChart(1825)">5Y</button>
+            <button type="button" class="btn btn-secondary rounded-right" onclick="updateChart('all')">All Time</button>
         </div>
     </div>
 </div>
 
-@*Recent Transactions and More*@
 <div class="row">
     <div class="col-md-6">
         <div class="widget">
@@ -129,3 +133,18 @@
         </div>
     </div>
 </div>
+
+<script>
+    function updateChart(days) {
+        $.ajax({
+            url: '/Dashboard/GetChartData',
+            data: { days: days },
+            success: function (response) {
+                // Update the chart data.
+                var chart = document.getElementById('spline-chart').ej2_instances[0];
+                chart.series[0].dataSource = response;
+                chart.refresh();
+            }
+        });
+    }
+</script>
